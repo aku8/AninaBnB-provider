@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Trips</ion-title>
+  </ion-toolbar>
+</ion-header>
+<p><b>No upcoming trips</b></p>
+<p>Find your next vacation.</p>
+<ion-button (click)="navToExplore()" color="light" shape="round">Find Homes
+</ion-button>
+<ion-content>
+
+<ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Your Current Trip: Lisbon Condo
+        <ion-thumbnail>
+          <ion-img src="https://t-ec.bstatic.com/images/hotel/max1024x768/683/68331558.jpg" ></ion-img>
+        </ion-thumbnail>
+        </ion-label>
+      <ion-button color="light" shape="round" (click)="navToRentalDetails()"><ion-icon name="add"></ion-icon>More Information</ion-button>
+
+    </ion-item>
+  </ion-list>
+</ion-card>
+</ion-content>

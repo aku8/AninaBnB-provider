@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back" (click)="navToRentals()"></ion-icon>
+    <ion-title>Rental Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-text>Here are the details for your rental:</ion-text>
+Name: "{{listing1.name}}"
+
+<ion-button shape="round" color="light" (click)="editDetails()">Edit Details</ion-button>
+</ion-content>

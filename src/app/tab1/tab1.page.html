@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My Rentals
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <ion-list>
+  <ion-item>
+    <ion-label>Party Mansion in Cancun</ion-label>
+    <ion-button shape="round" color="light" (click)="rentalDetails()">Details</ion-button>
+    <ion-thumbnail>
+      <ion-img src="https://d3glb5zioac6h9.cloudfront.net/uploads/sources/199094/detail_large/1.jpg?1503256779">
+      </ion-img>
+    </ion-thumbnail>
+  </ion-item>
+  </ion-list>
+  </ion-card>
+  <ion-button shape="round" color="light" (click)="newRental()">Create a New Rental</ion-button>
+
+</ion-content>
