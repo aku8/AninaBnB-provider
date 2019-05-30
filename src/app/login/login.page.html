@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>
       Welcome Back!
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
     <ion-card class="welcome-card">
       <ion-img src="https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg"></ion-img>
       <ion-card-header>
@@ -20,12 +20,12 @@
     <ion-input placeholder="Username" required=true ></ion-input>
     <ion-input type="password" placeholder="Password" required=true></ion-input>
 
-    <ion-button shape="round" (click)="navToExplore()">
+    <ion-button shape="round" (click)="navToExplore()" color="secondary">
       <ion-icon slot="start" name="star"></ion-icon>
       Log In
     </ion-button>
     <br>
-    <ion-button shape="round" (click)="navToRegister()">
+    <ion-button shape="round" (click)="navToRegister()" color="secondary">
       <ion-icon slot="start" name="add"></ion-icon>
       Register
     </ion-button>

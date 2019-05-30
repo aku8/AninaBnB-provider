@@ -6,26 +6,27 @@
 // and used throughout the application.
 
 :root {
-    --ion-color-primary: #e47e77;
-    --ion-color-primary-rgb: 228,126,119;
-    --ion-color-primary-contrast: #000000;
-    --ion-color-primary-contrast-rgb: 0,0,0;
-    --ion-color-primary-shade: #c96f69;
-    --ion-color-primary-tint: #e78b85;
+  --ion-color-primary: #fefdf7;
+  --ion-color-primary-rgb: 254,253,247;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0,0,0;
+  --ion-color-primary-shade: #e0dfd9;
+  --ion-color-primary-tint: #fefdf8;
+
+  --ion-color-secondary: #e7dbd9;
+  --ion-color-secondary-rgb: 231,219,217;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0,0,0;
+  --ion-color-secondary-shade: #cbc1bf;
+  --ion-color-secondary-tint: #e9dfdd;
+
+  --ion-color-tertiary: #f1edf7;
+  --ion-color-tertiary-rgb: 241,237,247;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0,0,0;
+  --ion-color-tertiary-shade: #d4d1d9;
+  --ion-color-tertiary-tint: #f2eff8;
   
-    --ion-color-secondary: #ca7678;
-    --ion-color-secondary-rgb: 202,118,120;
-    --ion-color-secondary-contrast: #000000;
-    --ion-color-secondary-contrast-rgb: 0,0,0;
-    --ion-color-secondary-shade: #b2686a;
-    --ion-color-secondary-tint: #cf8486;
-  
-    --ion-color-tertiary: #e8bb7b;
-    --ion-color-tertiary-rgb: 232,187,123;
-    --ion-color-tertiary-contrast: #000000;
-    --ion-color-tertiary-contrast-rgb: 0,0,0;
-    --ion-color-tertiary-shade: #cca56c;
-    --ion-color-tertiary-tint: #eac288;
   
     --ion-color-success: #10dc60;
     --ion-color-success-rgb: 16,220,96;

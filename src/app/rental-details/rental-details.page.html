@@ -1,13 +1,26 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-icon name="arrow-back" (click)="navToRentals()"></ion-icon>
-    <ion-title>Rental Details</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-back-button></ion-back-button>
+    <ion-title *ngIf="currentListing">
+      {{currentListing.name}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-text>Here are the details for your rental:</ion-text>
-Name: "{{listing1.name}}"
+<ion-content color="primary">
+  <ion-card>
+    Here are the details for your current listing:
+    <br>
+    <ion-text *ngIf="currentListing">
+      {{currentListing.name}}
+      <br>
+      Price: {{currentListing.price}} per night
+    </ion-text>
 
-<ion-button shape="round" color="light" (click)="editDetails()">Edit Details</ion-button>
+  </ion-card>
+  <ion-card class="welcome-card">
+
+  <ion-img src={{currentListing.preview}}></ion-img>
+  </ion-card>
 </ion-content>
