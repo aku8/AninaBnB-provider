@@ -1,10 +1,25 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-back-button></ion-back-button>
-    <ion-title>Edit Rental</ion-title>
+    <ion-title>Edit Current Rental</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content color="primary">
+<ion-card>
+  <ion-label *ngIf = "currentListing"> 
+    {{currentListing.name}}
+    <br>
+    {{currentListing.location}}
+    <br>
+    {{currentListing.price}}
+    <br>
+  </ion-label>
+  Make your changes below.
+  <ion-input placeholder="Name of Listing" [(ngModel)]="newName"></ion-input>
+  <ion-input placeholder="Location" [(ngModel)]="newLocation"></ion-input>
+  <ion-input placeholder = "Price" [(ngModel)]="newPrice"></ion-input>
+  <br>
+  <ion-button shape="round" color="secondary" (click)="saveDetails()">Save</ion-button>
+</ion-card>
 </ion-content>

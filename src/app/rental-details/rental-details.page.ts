@@ -34,8 +34,16 @@ export class RentalDetailsPage implements OnInit {
     this.NavCtrl.navigateBack("tab/tabs/tab1");
   }
 
-  editDetails(){
-    this.NavCtrl.navigateForward("editrental")
+
+  editDetails(listings: listing){
+
+    this.NavCtrl.navigateForward("editrental", {
+      queryParams: {
+        q: "ionic",
+        listingName: listings.name,
+        listingId: listings.id
+      }
+    });
   
   }
 
