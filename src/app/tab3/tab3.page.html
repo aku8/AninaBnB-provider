@@ -11,12 +11,12 @@
   <ion-img src="https://www.drewettworks.com/wp-content/uploads/2013/12/PVModern-View-1a.jpg"></ion-img>
 </ion-card>
 <ion-card>
-  <ion-input placeholder=" Name of Listing"></ion-input>
-  <ion-input placeholder=" Location"></ion-input>
-  <ion-input placeholder=" Listing Price per Night"></ion-input>
-  <ion-input placeholder=" Image"></ion-input>
+  <ion-input [(ngModel)]="listing.name" placeholder=" Name of Listing"></ion-input>
+  <ion-input [(ngModel)]="listing.location" placeholder=" Location"></ion-input>
+  <ion-input [(ngModel)]="listing.price"placeholder=" Listing Price per Night"></ion-input>
+  <ion-input [(ngModel)]="listing.imageUrl"placeholder=" Image"></ion-input>
 </ion-card>
 
-<ion-button (click)="navToExplore()" color="secondary" shape="round" class="center">Create New Rental
+<ion-button (click)="createListing()" color="secondary" shape="round" class="center">Create New Rental
 </ion-button>
 </ion-content>

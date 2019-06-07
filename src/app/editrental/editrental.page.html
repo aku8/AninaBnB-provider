@@ -16,9 +16,10 @@
     <br>
   </ion-label>
   Make your changes below.
-  <ion-input placeholder="Name of Listing" [(ngModel)]="newName"></ion-input>
-  <ion-input placeholder="Location" [(ngModel)]="newLocation"></ion-input>
-  <ion-input placeholder = "Price" [(ngModel)]="newPrice"></ion-input>
+  <ion-input placeholder="Name of Listing" [(ngModel)]="listing.name"></ion-input>
+  <ion-input placeholder="Location" [(ngModel)]="listing.location"></ion-input>
+  <ion-input placeholder = "Image URL" [(ngModel)] = "listing.imageUrl"></ion-input>
+  <ion-input placeholder = "Price" [(ngModel)]="listing.price"></ion-input>
   <br>
   <ion-button shape="round" color="secondary" (click)="saveDetails()">Save</ion-button>
 </ion-card>

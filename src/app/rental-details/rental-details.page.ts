@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { listing } from '../models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../services/property.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-rental-details',
@@ -11,31 +12,65 @@ import { PropertyService } from '../services/property.service';
 })
 export class RentalDetailsPage implements OnInit {
 
-    public nameOfListing: string;
-    public listingId: number;
-    public currentListing: listing;
+  public listing: listing = new listing();
+
+  // public listing: any = {
+  //   name: "",
+  //   location: "",
+  //   imageUrl: "",
+  //   price: ""
+  // }
+
+
+  // public nameOfListing: string;
+  // public listingId: number;
+  // public currentListing: listing;
 
   constructor(private activatedRoute: ActivatedRoute, private NavCtrl: NavController,
-    private propertyService: PropertyService) { }
+    private propertyService: PropertyService, private httpClient: HttpClient) { }
+
+
 
   ngOnInit() {
-    let arrow = (data:any) => {
-      this.nameOfListing = data.params.listingName;
-      this.listingId = data.params.listingId;
-      this.currentListing = this.propertyService.findListingById(this.listingId);
-
-    };
 
     this.activatedRoute.queryParamMap.subscribe(
-      arrow);
+      (parameters: ParamMap) => {
+        console.log(parameters);
+        const listing_id = (parameters.get("listing_id"));
+
+        this.httpClient.get("http://localhost:4000/listings/" + listing_id).subscribe((response: listing) => {
+          console.log(response[0]);
+          console.log(listing_id);
+
+          //response will be an object (User) 
+          //so we could call response.name, response.email, etc. 
+          this.listing.name = response[0].name;
+          this.listing.location = response[0].location;
+          this.listing.price = response[0].price;
+          this.listing.imageUrl = response[0].imageUrl;
+          this.listing.id = response[0].id;
+
+        });
+      });
   }
 
-  navToRentals(){
+  // let arrow = (data:any) => {
+  //   this.nameOfListing = data.params.listingName;
+  //   this.listingId = data.params.listingId;
+  //   this.currentListing = this.propertyService.findListingById(this.listingId);
+
+  // };
+
+  // this.activatedRoute.queryParamMap.subscribe(
+  //   arrow);
+
+
+  navToRentals() {
     this.NavCtrl.navigateBack("tab/tabs/tab1");
   }
 
 
-  editDetails(listings: listing){
+  editDetails(listings: listing) {
 
     this.NavCtrl.navigateForward("editrental", {
       queryParams: {
@@ -44,7 +79,31 @@ export class RentalDetailsPage implements OnInit {
         listingId: listings.id
       }
     });
-  
   }
 
+  delete() {
+
+    this.activatedRoute.queryParamMap.subscribe(
+      (parameters: ParamMap) => {
+        console.log(parameters);
+        const listing_id = (parameters.get("listing_id"));
+
+        // console.log("Submitting to the server...");
+        // console.log(this.listing);
+
+        this.httpClient.delete("http://localhost:4000/listings/" + listing_id).subscribe(
+          (response: any) => {
+            console.log(response);
+            this.NavCtrl.navigateForward("tab/tabs/tab1");
+            // { queryParams: { userId: response.id } });
+          },
+          (err) => {
+            console.log(err);
+            alert("Could not delete.");
+          }
+        );
+      });
+  }
 }
+
+

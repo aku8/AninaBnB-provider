@@ -7,23 +7,23 @@
 
 <ion-content text-center color="primary">
   <ion-card>
-  <ion-title>Hi, I'm Anina</ion-title>
   <br>
+
   <ion-avatar class="avatar">
     <img src="https://i.imgur.com/umL9nmX.jpg">
   </ion-avatar>
+  <ion-label>Hi, I'm {{user.firstname}}</ion-label>
+
 
   <h4>About</h4>
   <ion-icon name="mail"></ion-icon>
-  <ion-label> aku@college.harvard.edu</ion-label>
+  <ion-label> {{user.email}}</ion-label>
 <br>
-  <ion-icon name="phone-portrait"></ion-icon>
-  <ion-label> +1 862 309 3495</ion-label>
+
 </ion-card>
   <ion-card>
-  <ion-title>Number of Bookings Made: 23</ion-title>
+  <ion-title>Your Bookings:</ion-title>
   <br>
-  <ion-title>Number of Reviews Received: 2</ion-title>
   </ion-card>
 <br>
 <ion-card>

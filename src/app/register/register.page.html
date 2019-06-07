@@ -1,15 +1,16 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
+    <ion-back-button></ion-back-button>
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-card>
-<ion-input placeholder="Full Name"></ion-input>
-<ion-input placeholder = "Email (this will be your username"></ion-input>
-<ion-input type = "password" placeholder = "Password"></ion-input>
-<ion-input type = "password" placeholder = "Verify Password"></ion-input>
-</ion-card>
-<ion-button shape="round" color="light" (click)=login()>Register</ion-button>
+<ion-content color="primary">
+  <ion-card>
+    <ion-input [(ngModel)]="user.firstname" placeholder=" First Name"></ion-input>
+    <ion-input [(ngModel)]="user.lastname" placeholder=" Last Name"></ion-input>
+    <ion-input [(ngModel)]="user.email" placeholder=" Email (this will be your username)"></ion-input>
+    <ion-input [(ngModel)]="user.password" type="password" placeholder=" Password"></ion-input>
+  </ion-card>
+  <ion-button shape="round" color="secondary" (click)="register()">Register</ion-button>
 </ion-content>

@@ -2,8 +2,8 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-back-button></ion-back-button>
-    <ion-title *ngIf="currentListing">
-      {{currentListing.name}}
+    <ion-title>
+      {{listing.name}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,17 +12,19 @@
   <ion-card>
     Here are the details for your current listing:
     <br>
-    <ion-text *ngIf="currentListing">
-      {{currentListing.name}}
+    <ion-text>
+      {{listing.name}}
       <br>
-      Price: {{currentListing.price}} per night
+      Price: {{listing.price}} per night
     </ion-text>
     <br>
 <ion-button shape="round" color="secondary" (click)="editDetails(currentListing)">Edit</ion-button>
 
+
   </ion-card>
   <ion-card class="welcome-card">
 
-  <ion-img src={{currentListing.preview}}></ion-img>
+  <ion-img src={{listing.imageUrl}}></ion-img>
   </ion-card>
+  <ion-button shape="round" color="secondary" (click)="delete()">Delete Listing</ion-button>
 </ion-content>

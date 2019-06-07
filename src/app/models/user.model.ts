@@ -1,27 +1,16 @@
-import { listing } from './listing.model';
 
 export class User{
-    public firstname: string;
-    public lastname: string;
-
-    public past_rentals: listing[] = new Array<listing>();
-    public saved_rentals: listing[] = new Array<listing>();
-
+    id: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+    password: string;
     constructor() {
+        this.id = 0;
         this.firstname = "";
         this.lastname = "";
-        this.past_rentals = [];
-        this.saved_rentals = [];
+        this.email = "";
+        this.password = "";
     }
-
-    public setFirstName(firstname: string) {
-        this.firstname = firstname;
-    }
-
-    public setLastName(lastname: string) {
-        this.lastname = lastname;
-    }
-    }
-
-   
+}
     

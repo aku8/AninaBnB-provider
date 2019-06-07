@@ -17,10 +17,10 @@
         <p>Access your listings by signing in below.</p>
       </ion-card-content>
     </ion-card>
-    <ion-input placeholder="Username" required=true ></ion-input>
-    <ion-input type="password" placeholder="Password" required=true></ion-input>
+    <ion-input [(ngModel)]="email" placeholder="Username" required=true ></ion-input>
+    <ion-input [(ngModel)]="password" type="password" placeholder="Password" required=true></ion-input>
 
-    <ion-button shape="round" (click)="navToExplore()" color="secondary">
+    <ion-button shape="round" (click)="login()" color="secondary">
       <ion-icon slot="start" name="star"></ion-icon>
       Log In
     </ion-button>

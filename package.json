@@ -25,6 +25,8 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.1.0",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
+    "my-sql": "^1.2.15",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"
@@ -55,5 +57,14 @@
     "tslint": "~5.16.0",
     "typescript": "~3.1.6"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aku8/AninaBnB-provider.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aku8/AninaBnB-provider/issues"
+  }
 }

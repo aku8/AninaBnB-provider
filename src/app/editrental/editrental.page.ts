@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 import { listing } from '../models';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../services/property.service';
@@ -11,6 +12,12 @@ import { PropertyService } from '../services/property.service';
 })
 export class EditrentalPage implements OnInit {
 
+  public listing: any = {
+    name: "",
+    location: "",
+    imageUrl: "",
+    price: ""
+  }
   public nameOfListing: string;
   public listingId: number;
   public currentListing: listing;
@@ -20,7 +27,7 @@ export class EditrentalPage implements OnInit {
   newLocation: string="";
 
 constructor(private activatedRoute: ActivatedRoute, private NavCtrl: NavController,
-  private propertyService: PropertyService) { }
+  private propertyService: PropertyService, private httpClient: HttpClient) { }
 
 ngOnInit() {
   let arrow = (data:any) => {
@@ -39,7 +46,20 @@ ngOnInit() {
 
   //Help!
   saveDetails(){
-    this.nameOfListing = this.newName;
+    console.log("Submitting to the server...");
+    console.log(this.listing);
+
+    this.httpClient.post("http://localhost:4000/listings", this.listing).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.NavCtrl.navigateForward("tab/tabs/tab1");
+        // { queryParams: { userId: response.id } });
+      },
+      (err) => {
+        console.log(err);
+        alert("Could not save.");
+      }
+    );
   }
 
 
