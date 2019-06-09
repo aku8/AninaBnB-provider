@@ -7,27 +7,37 @@
 </ion-header>
 
 <ion-content color="primary">
-    <ion-card class="welcome-card">
-      <ion-img src="https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Hualalai, Hawaii</ion-card-subtitle>
-        <ion-card-title>Welcome to AninaBnB</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Access your listings by signing in below.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-input [(ngModel)]="email" placeholder="Username" required=true ></ion-input>
-    <ion-input [(ngModel)]="password" type="password" placeholder="Password" required=true></ion-input>
+  <ion-card class="welcome-card">
+    <ion-img
+      src="https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg">
+    </ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Hualalai, Hawaii</ion-card-subtitle>
+      <ion-card-title>Welcome to AninaBnB</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Access your listings by signing in below.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-input [(ngModel)]="email" type="email" placeholder=" Email" required=true></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-input [(ngModel)]="password" type="password" placeholder=" Password" required=true></ion-input>
+    </ion-item>
     <ion-button shape="round" (click)="login()" color="secondary">
       <ion-icon slot="start" name="star"></ion-icon>
       Log In
     </ion-button>
-    <br>
-    <ion-button shape="round" (click)="navToRegister()" color="secondary">
-      <ion-icon slot="start" name="add"></ion-icon>
-      Register
-    </ion-button>
+  </ion-card>
+
+  <br>
+  
+  <ion-button shape="round" (click)="navToRegister()" color="secondary">
+    <ion-icon slot="start" name="add"></ion-icon>
+    Register
+  </ion-button>
 
 </ion-content>

@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-back-button></ion-back-button>
@@ -15,16 +14,28 @@
     <ion-text>
       {{listing.name}}
       <br>
+      {{listing.location}}
+      <br>
       Price: {{listing.price}} per night
     </ion-text>
     <br>
-<ion-button shape="round" color="secondary" (click)="editDetails(currentListing)">Edit</ion-button>
-
-
+    <ion-button shape="round" color="secondary" (click)="editDetails()">Edit</ion-button>
   </ion-card>
+
+    <ion-card>
+      Current Booking Requests for {{listing.name}}:
+      <ion-list>
+        <ion-item *ngFor="let request of requests" color="primary">
+          <ion-label> {{request.startDate}} to </ion-label>
+          <ion-label>{{request.endDate}}</ion-label>
+          <ion-button shape="round" color="secondary" (click)="accept()">ACCEPT</ion-button>
+          <ion-button shape="round" color="secondary" (click)="reject()">REJECT</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card>
   <ion-card class="welcome-card">
 
-  <ion-img src={{listing.imageUrl}}></ion-img>
+    <ion-img src={{listing.imageUrl}}></ion-img>
   </ion-card>
   <ion-button shape="round" color="secondary" (click)="delete()">Delete Listing</ion-button>
 </ion-content>

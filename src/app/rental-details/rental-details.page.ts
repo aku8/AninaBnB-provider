@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { listing } from '../models';
+import { Request } from '../models';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../services/property.service';
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class RentalDetailsPage implements OnInit {
 
   public listing: listing = new listing();
+
+  public requests: Array<Request> = [];
 
   // public listing: any = {
   //   name: "",
@@ -51,6 +54,16 @@ export class RentalDetailsPage implements OnInit {
           this.listing.id = response[0].id;
 
         });
+
+        //getting list of booking requests
+        this.httpClient.get("http://localhost:4000/bookings/" + listing_id).subscribe(
+          (response: any) => {
+            this.requests = response;
+        },
+        (err) => {
+          console.log(err);
+          alert("Could not retrieve current booking requests.");
+        });
       });
   }
 
@@ -70,15 +83,21 @@ export class RentalDetailsPage implements OnInit {
   }
 
 
-  editDetails(listings: listing) {
+  editDetails() {
+    this.activatedRoute.queryParamMap.subscribe(
+      (parameters: ParamMap) => {
+        console.log(parameters);
+        const listing_id = (parameters.get("listing_id"));
 
-    this.NavCtrl.navigateForward("editrental", {
-      queryParams: {
-        q: "ionic",
-        listingName: listings.name,
-        listingId: listings.id
-      }
-    });
+        this.NavCtrl.navigateForward("editrental", {
+          queryParams: {
+            listing_id: listing_id
+          }
+        });
+      });
+  }
+
+  accept() {
   }
 
   delete() {

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { NavController} from '@ionic/angular';
 import { listing } from '../models';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
   @Component({
   selector: 'app-tab3',
@@ -11,19 +12,32 @@ import { listing } from '../models';
 })
 
 
-export class Tab3Page {
+export class Tab3Page implements OnInit{
 
-  public listings: Array<listing> = new Array();
-  public listing: any = {
-    name: "",
-    location: "",
-    imageUrl: "",
-    price: 0
+  // public listings: Array<listing> = new Array();
+
+  public listing: listing = new listing();
+  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient, private navCtrl: NavController) {
+
+
   }
-  constructor(private httpClient: HttpClient, private navCtrl: NavController) {}
+  ngOnInit() {
+
+  }     
+
   
   createListing() {
+    const userId = localStorage.getItem("user_id");
+
+    console.log("PROVIDER USER ID: ", userId);
+
+    this.activatedRoute.queryParamMap.subscribe(
+      (parameters: ParamMap) => {
+        console.log(parameters);
+      }
+    )
     console.log("Submitting to the server...");
+    this.listing.userId = Number(userId);
     console.log(this.listing);
 
     this.httpClient.post("http://localhost:4000/listings", this.listing).subscribe(

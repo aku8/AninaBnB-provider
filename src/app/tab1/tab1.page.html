@@ -12,7 +12,7 @@
   <ion-item *ngFor="let listing of listings" color="primary" (click)="navToListing(listing)">
     <ion-label>{{listing.name}}</ion-label>
     <ion-thumbnail>
-      <ion-img src={{listing.preview}}>
+      <ion-img src={{listing.imageUrl}}>
       </ion-img>
     </ion-thumbnail>
   </ion-item>

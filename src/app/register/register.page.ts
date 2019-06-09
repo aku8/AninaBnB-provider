@@ -25,7 +25,15 @@ export class RegisterPage implements OnInit {
     this.httpClient.post("http://localhost:4000/users", this.user).subscribe(
       (response: any) => {
         console.log(response);
-        this.navCtrl.navigateForward("tab/tabs/tab1", { queryParams: { userId: response.id } });
+        var userId = response.id;
+        this.navCtrl.navigateForward("tab/tabs/tab1", { queryParams: { userId } });
+        //STORING
+        localStorage.setItem("user_id", userId);
+        this.navCtrl.navigateForward("tab/tabs/tab2", {
+          queryParams: {
+            user_id: userId
+          }
+        });
       },
       (err) => {
         console.log(err);
@@ -33,9 +41,9 @@ export class RegisterPage implements OnInit {
       }
     );
   }
-    ngOnInit() {
-    }
-    // login() {
-    //   this.navCtrl.navigateForward("")
-    // }
+  ngOnInit() {
   }
+  // login() {
+  //   this.navCtrl.navigateForward("")
+  // }
+}
